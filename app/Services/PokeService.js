@@ -1,4 +1,4 @@
-import Value from "../Models/Value.js";
+import Pokemon from "../Models/Pokemon.js";
 
 //Private
 let _state = {
@@ -18,7 +18,7 @@ function _setState(propName, data) {
 }
 
 //Public
-export default class ValuesService {
+export default class PokeService {
     //NOTE adds the subscriber function to the array based on the property it is watching
     addSubscriber(propName, fn) {
         _subscribers[propName].push(fn)

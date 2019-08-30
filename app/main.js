@@ -1,10 +1,10 @@
-import ValuesController from "./Controllers/ValuesController.js";
+import PokeController from "./Controllers/PokeController.js";
 
 
 class App {
     constructor() {
         this.controllers = {
-            valuesController: new ValuesController()
+            pokeController: new PokeController()
         }
     }
 }
