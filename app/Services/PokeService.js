@@ -53,6 +53,11 @@ export default class PokeService {
 
     //End Getters
 
+    active(id) {
+        let poke = _state.myPokemon.find(p => p._id == id)
+        _setState("currentPokemon", poke)
+    }
+
     //Poke API Calls
     getAllApiPokemon() {
         _pokeApi.get()

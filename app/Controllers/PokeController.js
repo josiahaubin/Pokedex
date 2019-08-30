@@ -23,7 +23,7 @@ function _drawMyPokemon() {
     let myPoke = _pokeService.myPokemon
 
     myPoke.forEach(p => {
-        template += `<li>${p.name}</li>`
+        template += `<li onclick="app.controllers.pokeController.activeMyPokemon('${p._id}')">${p.name}</li>`
     })
 
     document.getElementById('my-pokemon').innerHTML = template + `</ol>`
@@ -48,5 +48,8 @@ export default class PokeController {
     }
     catch() {
         _pokeService.catch()
+    }
+    activeMyPokemon(id) {
+        _pokeService.active(id)
     }
 }
