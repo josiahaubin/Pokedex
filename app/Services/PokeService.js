@@ -2,7 +2,7 @@ import Pokemon from "../Models/Pokemon.js";
 
 // @ts-ignore
 let _pokeApi = axios.create({
-    baseURL: "https://pokeapi.co/api/v2/pokemon"
+    baseURL: "https://pokeapi.co/api/v2/pokemon/"
 })
 
 // @ts-ignore
@@ -43,7 +43,22 @@ export default class PokeService {
         return _state.apiPokemon
     }
 
+    get currentPokemon() {
+        return new Pokemon(_state.currentPokemon)
+    }
+
     //End Getters
+
+    selectPokemon(name) {
+        _pokeApi.get(name)
+            .then(res => {
+                let pokemon = new Pokemon(res.data)
+                _setState("currentPokemon", pokemon)
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }
 
     //Poke API Calls
     getAllApiPokemon() {

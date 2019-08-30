@@ -14,7 +14,7 @@ export default class Pokemon {
                 <img src="${this.img}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">${this.name}</h5>
-                    <p class="card-text">Weight: ${this.weight} - Height: ${this.height} <br>${this.types}</p>
+                    <p class="card-text">Weight: ${this.weight} - Height: ${this.height}</p>
                     <button class="btn btn-success">Go somewhere</button>
                 </div>
             </div>
