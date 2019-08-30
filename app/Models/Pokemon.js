@@ -15,7 +15,7 @@ export default class Pokemon {
                 <div class="card-body">
                     <h5 class="card-title">${this.name}</h5>
                     <p class="card-text">Weight: ${this.weight} - Height: ${this.height}</p>
-                    <button class="btn btn-success">Go somewhere</button>
+                    <button class="btn btn-success" onclick="app.controllers.pokeController.catch()">Catch Pokemon</button>
                 </div>
             </div>
         `

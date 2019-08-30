@@ -47,7 +47,23 @@ export default class PokeService {
         return new Pokemon(_state.currentPokemon)
     }
 
+    get myPokemon() {
+        return _state.myPokemon.map(p => new Pokemon(p))
+    }
+
     //End Getters
+
+    //Poke API Calls
+    getAllApiPokemon() {
+        _pokeApi.get()
+            .then(res => {
+                console.log(res.data.results);
+                _setState("apiPokemon", res.data.results)
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }
 
     selectPokemon(name) {
         _pokeApi.get(name)
@@ -60,12 +76,20 @@ export default class PokeService {
             })
     }
 
-    //Poke API Calls
-    getAllApiPokemon() {
-        _pokeApi.get()
+    //Sandbox Api calls
+    getMyPokemon() {
+        _sandBoxApi.get()
             .then(res => {
-                console.log(res.data.results);
-                _setState("apiPokemon", res.data.results)
+                console.log(res.data.data)
+                _setState("myPokemon", res.data.data)
+            })
+    }
+
+    catch() {
+        _sandBoxApi.post('', _state.currentPokemon)
+            .then(res => {
+                _state.myPokemon.push(new Pokemon(res.data.data))
+                _setState("myPokemon", _state.myPokemon)
             })
             .catch(err => {
                 console.error(err);

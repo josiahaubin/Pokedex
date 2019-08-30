@@ -18,6 +18,17 @@ function _drawCurrentPokemon() {
     document.getElementById('current-pokemon').innerHTML = _pokeService.currentPokemon.Template
 }
 
+function _drawMyPokemon() {
+    let template = `<ol>`
+    let myPoke = _pokeService.myPokemon
+
+    myPoke.forEach(p => {
+        template += `<li>${p.name}</li>`
+    })
+
+    document.getElementById('my-pokemon').innerHTML = template + `</ol>`
+}
+
 
 //Public
 export default class PokeController {
@@ -25,12 +36,17 @@ export default class PokeController {
         //NOTE Register all subscribers
         _pokeService.addSubscriber("apiPokemon", _drawAllApiPokemon)
         _pokeService.addSubscriber("currentPokemon", _drawCurrentPokemon)
+        _pokeService.addSubscriber("myPokemon", _drawMyPokemon)
 
         //NOTE Retrieve data
         _pokeService.getAllApiPokemon()
+        _pokeService.getMyPokemon()
     }
 
     selectPokemon(name) {
         _pokeService.selectPokemon(name)
+    }
+    catch() {
+        _pokeService.catch()
     }
 }
