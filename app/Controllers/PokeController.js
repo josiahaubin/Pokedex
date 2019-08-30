@@ -52,4 +52,8 @@ export default class PokeController {
     activeMyPokemon(id) {
         _pokeService.active(id)
     }
+    releasePokemon() {
+        _pokeService.releasePokemon()
+        document.getElementById('current-pokemon').innerHTML = ''
+    }
 }

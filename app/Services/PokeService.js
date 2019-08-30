@@ -58,6 +58,18 @@ export default class PokeService {
         _setState("currentPokemon", poke)
     }
 
+    releasePokemon() {
+        _sandBoxApi.delete(_state.currentPokemon._id)
+            .then(res => {
+                let index = _state.myPokemon.findIndex(p => p._id == _state.currentPokemon._id)
+                _state.myPokemon.splice(index, 1)
+                _setState("myPokemon", _state.myPokemon)
+            })
+            .catch(err => {
+                console.error(err);
+            })
+    }
+
     //Poke API Calls
     getAllApiPokemon() {
         _pokeApi.get()
