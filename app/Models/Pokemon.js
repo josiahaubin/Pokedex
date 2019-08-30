@@ -16,6 +16,8 @@ export default class Pokemon {
                     <h5 class="card-title">${this.name}</h5>
                     <p class="card-text">Weight: ${this.weight} - Height: ${this.height}</p>
                     <button class="btn btn-success" onclick="app.controllers.pokeController.catch()">Catch Pokemon</button>
+
+                    ${this._id ? `<button class="btn btn-danger" onclick="app.controllers.pokeController.releasePokemon()">Release Pokemon</button>` : ''}
                 </div>
             </div>
         `
