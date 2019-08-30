@@ -12,5 +12,6 @@ export default class PokeController {
 
 
         //NOTE Retrieve data
+        _pokeService.getAllApiPokemon()
     }
 }
