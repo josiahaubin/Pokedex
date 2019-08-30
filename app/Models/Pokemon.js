@@ -1,9 +1,23 @@
 export default class Pokemon {
     constructor(data) {
-        this.title = data.title
+        this._id = data._id
+        this.name = data.name
+        this.img = data.img || data.sprites.front_default
+        this.weight = data.weight
+        this.height = data.height
+        this.types = data.types
     }
 
     get Template() {
-        return this.title
+        return `
+            <div class="card">
+                <img src="${this.img}" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">${this.name}</h5>
+                    <p class="card-text">Weight: ${this.weight} - Height: ${this.height} <br>${this.types}</p>
+                    <button class="btn btn-success">Go somewhere</button>
+                </div>
+            </div>
+        `
     }
 }

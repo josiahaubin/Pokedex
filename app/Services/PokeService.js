@@ -1,5 +1,9 @@
 import Pokemon from "../Models/Pokemon.js";
 
+// @ts-ignore
+let _pokeApi = axios.create({
+    baseURL: "https://pokeapi.co/api/v2/pokemon"
+})
 //Private
 let _state = {
 
